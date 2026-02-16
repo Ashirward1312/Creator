@@ -1,6 +1,9 @@
 // src/components/Contact.jsx
 import React, { useMemo, useState } from "react";
 
+const MAP_SRC =
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d929.5981068730482!2d81.6537494!3d21.2559284!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd0048ba9cf5%3A0x446193b98282ea8b!2sCreator%20The%20Advertising!5e0!3m2!1sen!2sin!4v1771254413885!5m2!1sen!2sin";
+
 const Contact = () => {
   const BUSINESS = {
     name: "Creator The Advertising",
@@ -286,9 +289,7 @@ const Contact = () => {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="text-sm font-semibold text-slate-800">
-                      Service
-                    </label>
+                    <label className="text-sm font-semibold text-slate-800">Service</label>
                     <select
                       name="service"
                       value={form.service}
@@ -318,9 +319,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold text-slate-800">
-                    Requirement
-                  </label>
+                  <label className="text-sm font-semibold text-slate-800">Requirement</label>
                   <textarea
                     name="message"
                     value={form.message}
@@ -341,7 +340,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold text-white shadow-sm
-               bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-200"
+                    bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-200"
                   >
                     Send on WhatsApp
                   </button>
@@ -366,6 +365,37 @@ const Contact = () => {
               >
                 Open WhatsApp with this message →
               </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ✅ Google Map (added) */}
+        <div className="mt-8 rounded-3xl bg-white/90 backdrop-blur-xl ring-1 ring-sky-100 shadow-sm">
+          <div className="p-6 sm:p-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-xs font-semibold tracking-[0.28em] text-sky-700 uppercase">
+                LOCATION
+              </p>
+              <h3 className="mt-3 text-xl sm:text-2xl font-semibold text-slate-900">
+                Find us on Google Maps
+              </h3>
+              <p className="mt-2 text-sm text-slate-600">{BUSINESS.address}</p>
+            </div>
+
+            <div className="mt-5 overflow-hidden rounded-3xl ring-1 ring-slate-200 bg-slate-50">
+              <div className="h-72 sm:h-96 w-full">
+                <iframe
+                  src={MAP_SRC}
+                  width="600"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-full w-full"
+                  title="Creator The Advertising - Map"
+                />
+              </div>
             </div>
           </div>
         </div>

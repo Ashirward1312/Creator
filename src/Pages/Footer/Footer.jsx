@@ -11,8 +11,13 @@ const Footer = () => {
   const instagramLink =
     "https://www.instagram.com/creator.rpr?igsh=MWdobnE5azRqM3Jtaw%3D%3D";
 
+  // ✅ Google Maps link (simple)
+  const mapLink = "https://maps.app.goo.gl/"; // optional short link
+  // If you want exact place link (recommended), use this:
+  const mapPlaceLink =
+    "https://www.google.com/maps?q=Creator%20The%20Advertising%20behind%20Vishal%20Mega%20Mart%20near%20Taaza%20Idli%20Raipur%20CG";
+
   // ✅ Mind Bridge Tech WhatsApp
-  const mbtDisplay = "+91 747 095 8844";
   const mbtWa = "https://wa.me/917470958844";
 
   return (
@@ -105,9 +110,22 @@ const Footer = () => {
                   creator.rpr
                 </a>
               </li>
+
+              {/* ✅ Map link added */}
+              <li>
+                Map:{" "}
+                <a
+                  className="font-semibold text-sky-700 hover:text-sky-800"
+                  href={mapPlaceLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open Location
+                </a>
+              </li>
             </ul>
 
-            <div className="mt-5">
+            <div className="mt-5 flex flex-wrap gap-3">
               <a
                 href={whatsappLink}
                 target="_blank"
@@ -116,11 +134,21 @@ const Footer = () => {
               >
                 WhatsApp
               </a>
+
+              {/* ✅ Optional small map button */}
+              <a
+                href={mapPlaceLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-2xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-200"
+              >
+                Map
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom (centered + Mind Bridge Tech with gradient + WhatsApp link) */}
+        {/* Bottom */}
         <div className="mt-10 border-t border-sky-100 pt-6 text-center">
           <p className="text-sm text-slate-500">
             © {year}{" "}
@@ -134,10 +162,6 @@ const Footer = () => {
             </a>
             . All rights reserved.
           </p>
-
-         
-
-          <div className="mt-3 flex justify-center gap-4 text-sm"></div>
         </div>
       </div>
     </footer>

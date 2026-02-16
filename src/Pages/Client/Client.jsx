@@ -14,6 +14,7 @@ import Client11 from "../../images/cc3.png";
 import Client12 from "../../images/cc4.jpg";
 
 const clients = [
+  // 1 - 8 (Builders)
   { name: "Client Logo", logo: Client },
   { name: "Client Logo", logo: Client2 },
   { name: "Client Logo", logo: Client3 },
@@ -22,13 +23,70 @@ const clients = [
   { name: "Client Logo", logo: Client6 },
   { name: "Client Logo", logo: Client7 },
   { name: "Client Logo", logo: Client8 },
+
+  // 9 onwards (Co-operatives)
   { name: "Client Logo", logo: Client9 },
   { name: "Client Logo", logo: Client10 },
   { name: "Client Logo", logo: Client11 },
   { name: "Client Logo", logo: Client12 },
 ];
 
+const LogoGrid = ({ items }) => {
+  return (
+    <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      {items.map((c, idx) => (
+        <div
+          key={`${c.name}-${idx}`}
+          className={[
+            "group relative overflow-hidden rounded-2xl",
+            "bg-white ring-1 ring-slate-200 shadow-sm",
+            "transition duration-300",
+            "hover:-translate-y-0.5 hover:shadow-md hover:ring-sky-200",
+          ].join(" ")}
+        >
+          {/* subtle top shine */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 -top-20 h-40 bg-gradient-to-b from-slate-50 to-transparent opacity-70"
+          />
+
+          {/* Fixed-height tile */}
+          <div className="relative flex h-28 sm:h-32 items-center justify-center p-4">
+            {c.logo ? (
+              <img
+                src={c.logo}
+                alt={c.name}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                className={[
+                  "max-h-16 sm:max-h-20 w-auto max-w-[170px] object-contain",
+                  "mix-blend-multiply",
+                  "opacity-80 grayscale",
+                  "transition duration-300",
+                  "group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-[1.03]",
+                ].join(" ")}
+              />
+            ) : (
+              <div className="text-center">
+                <div className="h-10 w-28 rounded-xl bg-slate-100 ring-1 ring-slate-200" />
+                <p className="mt-2 text-xs font-semibold text-slate-500">{c.name}</p>
+              </div>
+            )}
+          </div>
+
+          {/* bottom line accent */}
+          <div className="h-1 w-full bg-gradient-to-r from-sky-200 via-violet-200 to-emerald-200 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Clients = () => {
+  const builders = clients.slice(0, 8); // Client 1 to Client 8
+  const cooperatives = clients.slice(8); // Client 9 onwards
+
   return (
     <section id="clients" className="relative overflow-hidden bg-white">
       {/* premium soft background */}
@@ -51,65 +109,39 @@ const Clients = () => {
           </p>
         </div>
 
-        {/* Logo wall */}
+        {/* Logo wall (grouped) */}
         <div className="mt-10 rounded-3xl bg-white/85 backdrop-blur-xl ring-1 ring-sky-100 shadow-sm">
           <div className="p-5 sm:p-8">
-            <div className="flex items-center justify-between gap-3">
-              <p className="text-sm font-semibold text-slate-900">Our Clients</p>
-              <p className="text-xs text-slate-500">{clients.length}+ brands</p>
+            {/* ✅ Builders (CENTER HEADING) */}
+            <div className="text-center">
+              <p className="text-xs font-semibold tracking-[0.24em] text-sky-700 uppercase">
+                Category
+              </p>
+              <p className="mt-2 text-lg sm:text-xl font-semibold text-slate-900">
+                Builders
+              </p>
+              <p className="mt-1 text-xs sm:text-sm text-slate-600">
+                Construction & real-estate partners • {builders.length} brands
+              </p>
             </div>
+            <LogoGrid items={builders} />
 
-            <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-              {clients.map((c, idx) => (
-                <div
-                  key={`${c.name}-${idx}`}
-                  className={[
-                    "group relative overflow-hidden rounded-2xl",
-                    "bg-white ring-1 ring-slate-200 shadow-sm",
-                    "transition duration-300",
-                    "hover:-translate-y-0.5 hover:shadow-md hover:ring-sky-200",
-                  ].join(" ")}
-                >
-                  {/* subtle top shine */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 -top-20 h-40 bg-gradient-to-b from-slate-50 to-transparent opacity-70"
-                  />
+            {/* Divider */}
+            <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-                  {/* ✅ Fixed-height tile so every logo looks equal + clear */}
-                  <div className="relative flex h-28 sm:h-32 items-center justify-center p-4">
-                    {c.logo ? (
-                      <img
-                        src={c.logo}
-                        alt={c.name}
-                        loading="lazy"
-                        decoding="async"
-                        draggable={false}
-                        className={[
-                          "max-h-16 sm:max-h-20 w-auto max-w-[170px] object-contain",
-                          // ✅ makes PNG/JPG logos look cleaner on white backgrounds
-                          "mix-blend-multiply",
-                          // ✅ subtle brand-wall effect
-                          "opacity-80 grayscale",
-                          "transition duration-300",
-                          "group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-[1.03]",
-                        ].join(" ")}
-                      />
-                    ) : (
-                      <div className="text-center">
-                        <div className="h-10 w-28 rounded-xl bg-slate-100 ring-1 ring-slate-200" />
-                        <p className="mt-2 text-xs font-semibold text-slate-500">
-                          {c.name}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* bottom line accent */}
-                  <div className="h-1 w-full bg-gradient-to-r from-sky-200 via-violet-200 to-emerald-200 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </div>
-              ))}
+            {/* ✅ Co-operatives (CENTER HEADING) */}
+            <div className="text-center">
+              <p className="text-xs font-semibold tracking-[0.24em] text-sky-700 uppercase">
+                Category
+              </p>
+              <p className="mt-2 text-lg sm:text-xl font-semibold text-slate-900">
+                Co‑operatives
+              </p>
+              <p className="mt-1 text-xs sm:text-sm text-slate-600">
+                Societies, co‑operative groups & institutions • {cooperatives.length} brands
+              </p>
             </div>
+            <LogoGrid items={cooperatives} />
 
             {/* trust cards */}
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -138,14 +170,14 @@ const Clients = () => {
         </div>
 
         {/* optional CTA */}
-        <div className="mt-10 flex justify-center">
+        {/* <div className="mt-10 flex justify-center">
           <a
             href="#contact"
             className="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-300"
           >
             Work With Us
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

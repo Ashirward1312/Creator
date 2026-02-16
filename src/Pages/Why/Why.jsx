@@ -204,14 +204,14 @@ const WhyChooseUs = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 flex justify-center">
+        {/* <div className="mt-10 flex justify-center">
           <a
             href="#contact"
             className="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-300"
           >
             TALK TO OUR TEAM
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );
