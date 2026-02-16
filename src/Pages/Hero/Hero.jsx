@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import React from "react";
-import p14 from "../../images/p14.jpeg";
+import p14 from "../../images/hero1.png";
 
 const Hero = () => {
   return (
