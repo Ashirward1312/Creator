@@ -23,25 +23,17 @@ import c8 from "../../images/c8.jpeg";
 import c10 from "../../images/c10.jpeg";
 import c11 from "../../images/c11.jpeg";
 
-const categories = [
-  "All",
-  "LED",
-  "Acrylic",
-  "3D Letters",
-  "Pylon",
-  "Wayfinding",
-  "Fabric",
-];
+const categories = ["All", "LED", "Acrylic", "3D Letters", "Pylon", "Wayfinding", "Fabric"];
 
-// ✅ Each filter chip gets its own color theme
+// ✅ All filter chips = EXTRA LIGHT BLUE theme
 const categoryStyles = {
-  All: { grad: "from-slate-900 to-slate-700", dot: "bg-slate-900" },
-  LED: { grad: "from-sky-600 to-indigo-600", dot: "bg-sky-600" },
-  Acrylic: { grad: "from-emerald-600 to-teal-600", dot: "bg-emerald-600" },
-  "3D Letters": { grad: "from-violet-600 to-fuchsia-600", dot: "bg-violet-600" },
-  Pylon: { grad: "from-amber-600 to-orange-600", dot: "bg-amber-600" },
-  Wayfinding: { grad: "from-rose-600 to-pink-600", dot: "bg-rose-600" },
-  Fabric: { grad: "from-cyan-600 to-sky-600", dot: "bg-cyan-600" },
+  All: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  LED: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  Acrylic: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  "3D Letters": { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  Pylon: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  Wayfinding: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  Fabric: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
 };
 
 const Arrow = ({ dir = "left" }) => (
@@ -122,7 +114,7 @@ const Portfolio = () => {
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
-  // Modal (works on filtered list)
+  // Modal
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const total = filteredImages.length;
@@ -175,10 +167,9 @@ const Portfolio = () => {
           <h2 className="mt-3 text-xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900">
             VIEW OUR WORK
           </h2>
-          
         </div>
 
-        {/* ✅ Filter Bar (colored chips) */}
+        {/* ✅ Filter Bar (extra light blue active) */}
         <div className="mt-8 flex justify-center">
           <div className="flex max-w-full flex-wrap items-center justify-center gap-2 rounded-3xl bg-white/80 backdrop-blur-xl p-2 ring-1 ring-slate-200 shadow-sm">
             {categories.map((cat) => {
@@ -194,12 +185,12 @@ const Portfolio = () => {
                     "rounded-2xl px-4 py-2 text-sm font-semibold transition",
                     "focus:outline-none focus:ring-2 focus:ring-sky-300",
                     active
-                      ? `text-white shadow-sm bg-gradient-to-r ${s.grad}`
-                      : "bg-white/90 text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
+                      ? `text-slate-900 shadow-sm bg-gradient-to-r ${s.grad} ring-1 ring-sky-200/70`
+                      : "bg-white/90 text-slate-700 ring-1 ring-slate-200 hover:bg-sky-50 hover:ring-sky-200/60",
                   ].join(" ")}
                 >
                   <span className="inline-flex items-center gap-2">
-                    <span className={["h-2 w-2 rounded-full", active ? "bg-white/90" : s.dot].join(" ")} />
+                    <span className={["h-2 w-2 rounded-full", active ? "bg-slate-900/70" : s.dot].join(" ")} />
                     {cat}
                   </span>
                 </button>
@@ -210,15 +201,8 @@ const Portfolio = () => {
 
         {/* ✅ Slider Wrapper */}
         <div className="mt-10 rounded-3xl bg-white/80 backdrop-blur-xl ring-1 ring-sky-100 shadow-sm p-4 sm:p-6">
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              
-            </div>
-          </div>
-
-          {/* ✅ Track + side arrows */}
           <div className="relative mt-6">
-            {/* left arrow (side) */}
+            {/* left arrow */}
             <button
               type="button"
               onClick={() => scrollTrack(-1)}
@@ -230,7 +214,7 @@ const Portfolio = () => {
               <Arrow dir="left" />
             </button>
 
-            {/* right arrow (side) */}
+            {/* right arrow */}
             <button
               type="button"
               onClick={() => scrollTrack(1)}
@@ -242,7 +226,7 @@ const Portfolio = () => {
               <Arrow dir="right" />
             </button>
 
-            {/* subtle side fades (premium look) */}
+            {/* side fades */}
             <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-white/90 to-transparent rounded-l-3xl" />
             <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white/90 to-transparent rounded-r-3xl" />
 
@@ -361,7 +345,13 @@ const Portfolio = () => {
                   className="hidden sm:grid absolute left-6 top-1/2 -translate-y-1/2 h-11 w-11 place-items-center rounded-full bg-white/95 ring-1 ring-slate-200 hover:bg-white transition"
                 >
                   <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
-                    <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M15 6l-6 6 6 6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
 
@@ -372,7 +362,13 @@ const Portfolio = () => {
                   className="hidden sm:grid absolute right-6 top-1/2 -translate-y-1/2 h-11 w-11 place-items-center rounded-full bg-white/95 ring-1 ring-slate-200 hover:bg-white transition"
                 >
                   <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
-                    <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M9 6l6 6-6 6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </div>

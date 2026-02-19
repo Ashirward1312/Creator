@@ -119,10 +119,7 @@ const LedLetters = () => (
   <I>
     <circle cx="32" cy="30" r="14" />
     <path d="M32 20 24 40h4l2-5h8l2 5h4L32 20Z" />
-    <path
-      d="M18 14l2-2M46 14l-2-2M18 46l2 2M46 46l-2 2"
-      opacity="0.9"
-    />
+    <path d="M18 14l2-2M46 14l-2-2M18 46l2 2M46 46l-2 2" opacity="0.9" />
   </I>
 );
 const LedBoards = () => (
@@ -140,6 +137,7 @@ const D = ({ children }) => (
     {children}
   </svg>
 );
+
 const Facebook = () => (
   <D>
     <circle cx="32" cy="32" r="22" fill="currentColor" />
@@ -149,6 +147,7 @@ const Facebook = () => (
     />
   </D>
 );
+
 const Instagram = () => (
   <D>
     <circle cx="32" cy="32" r="22" fill="currentColor" />
@@ -157,6 +156,7 @@ const Instagram = () => (
     <circle cx="38.5" cy="25.5" r="1.6" fill="currentColor" />
   </D>
 );
+
 const LinkedIn = () => (
   <D>
     <circle cx="32" cy="32" r="22" fill="currentColor" />
@@ -168,24 +168,83 @@ const LinkedIn = () => (
     />
   </D>
 );
+
+/* ✅ FIXED: Google Ads icon (clean + centered) */
 const GoogleG = () => (
   <D>
     <circle cx="32" cy="32" r="22" fill="currentColor" />
+    {/* Stylized "A" (Ads) */}
     <path
-      d="M44 32.2c0 7.8-5.3 13.3-13 13.3A13.5 13.5 0 0 1 31 18c3.2 0 6 1.2 8 3.1l-3.2 3.1c-3.9-3.8-10.8-1-10.8 5.8 0 3.7 3 6.7 6.9 6.7 4.2 0 5.7-3 5.9-4.6H31v-4h13c.1.7 0 2 0 4.1Z"
-      fill="white"
+      d="M26 44L32 22L38 44"
+      stroke="white"
+      strokeWidth="3.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
     />
-  </D>
-);
-const YouTube = () => (
-  <D>
-    <rect x="12" y="18" width="40" height="28" rx="8" fill="currentColor" />
-    <path d="M30 26v12l12-6-12-6Z" fill="white" />
+    <path
+      d="M28.8 34h6.4"
+      stroke="white"
+      strokeWidth="3.2"
+      strokeLinecap="round"
+      fill="none"
+    />
+    {/* Ads dot */}
+    <circle cx="42.5" cy="42" r="3.2" fill="white" />
   </D>
 );
 
-/* ---------------- UI (3D hover + click navigate) ---------------- */
-const MediaItem = ({ icon, label, onGo }) => (
+/* ✅ FIXED: YouTube icon (same circle style like others) */
+const YouTube = () => (
+  <D>
+    <circle cx="32" cy="32" r="22" fill="currentColor" />
+    <rect x="20" y="25" width="24" height="14" rx="5" fill="white" opacity="0.98" />
+    <path d="M31 28.8v6.4l7-3.2-7-3.2Z" fill="currentColor" />
+  </D>
+);
+
+/* ---------------- Premium UI ---------------- */
+
+const tones = {
+  outdoor: {
+    grad: "from-sky-400 via-cyan-300 to-indigo-400",
+    soft: "bg-sky-50",
+    ring: "ring-sky-200/70",
+    dot: "bg-sky-400",
+  },
+  store: {
+    grad: "from-emerald-300 via-teal-200 to-cyan-300",
+    soft: "bg-emerald-50",
+    ring: "ring-emerald-200/70",
+    dot: "bg-emerald-400",
+  },
+  event: {
+    grad: "from-amber-300 via-orange-200 to-rose-300",
+    soft: "bg-amber-50",
+    ring: "ring-amber-200/70",
+    dot: "bg-amber-400",
+  },
+  digital: {
+    grad: "from-violet-300 via-fuchsia-200 to-sky-300",
+    soft: "bg-violet-50",
+    ring: "ring-violet-200/70",
+    dot: "bg-violet-400",
+  },
+};
+
+const Chevron = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
+    <path
+      d="M9 6l6 6-6 6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const MediaItem = ({ icon, label, onGo, tone }) => (
   <li>
     <button
       type="button"
@@ -195,41 +254,49 @@ const MediaItem = ({ icon, label, onGo }) => (
       }}
       className={[
         "group/item w-full text-left",
-        "flex items-center gap-4 rounded-2xl p-2",
-        "transition duration-200 touch-manipulation",
-        "hover:bg-slate-50 active:scale-[0.99]",
+        "flex items-center gap-4 rounded-2xl p-2.5",
+        "transition duration-200",
+        "hover:bg-white/70 active:scale-[0.99]",
         "focus:outline-none focus:ring-2 focus:ring-sky-300",
       ].join(" ")}
       aria-label={`Open services for ${label}`}
     >
       <div
         className={[
-          "grid place-items-center h-12 w-12 rounded-2xl bg-slate-50 ring-1 ring-slate-200",
+          "relative grid place-items-center h-12 w-12 rounded-2xl",
+          "ring-1 shadow-sm",
+          tone.soft,
+          tone.ring,
           "transition duration-300 transform-gpu",
-          "group-hover/item:bg-white group-hover/item:ring-sky-200",
-          // subtle 3D-ish pop on icon tile
-          "group-hover/item:[transform:perspective(900px)_translateY(-2px)_rotateX(10deg)_rotateY(-10deg)]",
+          "group-hover/item:-translate-y-0.5 group-hover/item:shadow-md",
         ].join(" ")}
       >
+        {/* <span
+          className={[
+            "absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full ring-2 ring-white",
+            tone.dot,
+          ].join(" ")}
+        /> */}
         {icon}
       </div>
 
-      <p className="text-sm sm:text-base font-medium text-slate-900">{label}</p>
+      <p className="text-sm sm:text-base font-semibold text-slate-900">{label}</p>
 
       <span
         className={[
-          "ml-auto text-xs font-semibold text-slate-500",
+          "ml-auto inline-flex items-center gap-1",
+          "text-xs font-semibold text-slate-500",
           "opacity-0 translate-x-1 transition duration-200",
           "group-hover/item:opacity-100 group-hover/item:translate-x-0",
         ].join(" ")}
       >
-        View →
+        View <Chevron />
       </span>
     </button>
   </li>
 );
 
-const MediaCard = ({ title, accent, items, onGo }) => (
+const MediaCard = ({ title, subtitle, tone, items, onGo }) => (
   <div
     role="link"
     tabIndex={0}
@@ -241,57 +308,56 @@ const MediaCard = ({ title, accent, items, onGo }) => (
       }
     }}
     className={[
-      "group relative overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200",
-      "shadow-xl shadow-slate-200/60",
-      "cursor-pointer touch-manipulation",
+      "group relative overflow-hidden rounded-3xl",
+      "bg-white/70 backdrop-blur-xl",
+      "ring-1 ring-slate-200/80 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.35)]",
+      "cursor-pointer",
       "transition duration-300 transform-gpu",
-      // ✅ 3D hover (tilt + lift)
-      "hover:[transform:perspective(1200px)_translateY(-8px)_rotateX(4deg)_rotateY(-4deg)]",
-      "active:scale-[0.99]",
+      "hover:-translate-y-1.5 hover:shadow-[0_28px_70px_-40px_rgba(15,23,42,0.45)]",
       "focus:outline-none focus:ring-2 focus:ring-sky-300",
     ].join(" ")}
   >
-    {/* glow */}
+    <div
+      aria-hidden="true"
+      className={["absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r", tone.grad].join(" ")}
+    />
+
     <div
       aria-hidden="true"
       className={[
-        "absolute -top-20 left-1/2 h-40 w-[520px] -translate-x-1/2 blur-3xl opacity-30",
-        `bg-gradient-to-r ${accent}`,
+        "absolute -top-24 left-1/2 h-56 w-[46rem] -translate-x-1/2 blur-3xl opacity-25",
+        "bg-gradient-to-r",
+        tone.grad,
       ].join(" ")}
     />
 
-    {/* sheen/highlight on hover */}
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
     >
-      <div className="absolute -inset-24 bg-[radial-gradient(40rem_20rem_at_30%_10%,rgba(255,255,255,0.65),transparent_55%)]" />
+      <div className="absolute -inset-24 bg-[radial-gradient(40rem_22rem_at_20%_0%,rgba(255,255,255,0.55),transparent_55%)]" />
     </div>
 
     <div className="relative p-6 sm:p-8">
-      <div className="flex items-center justify-between gap-4">
-        <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">
-          {title}
-        </h3>
+      <div className="flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900">
+            {title}
+          </h3>
+          {subtitle ? <p className="mt-1 text-sm text-slate-600">{subtitle}</p> : null}
+        </div>
 
-        {/* ✅ removed "Click" badge */}
-        <span className="text-xs font-semibold text-slate-500">
-          View services →
-        </span>
+        <span className="shrink-0 text-xs font-semibold text-slate-500">View services →</span>
       </div>
 
       <ul className="mt-6 grid gap-2">
         {items.map((it) => (
-          <MediaItem key={it.label} icon={it.icon} label={it.label} onGo={onGo} />
+          <MediaItem key={it.label} icon={it.icon} label={it.label} onGo={onGo} tone={tone} />
         ))}
       </ul>
     </div>
 
-    {/* bottom accent line */}
-    <div
-      aria-hidden="true"
-      className="h-1 w-full bg-gradient-to-r from-sky-200 via-violet-200 to-emerald-200 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-    />
+    <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/70 to-transparent" />
   </div>
 );
 
@@ -305,23 +371,27 @@ const OurMedia = () => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-slate-50 to-white" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-28 left-1/2 -z-10 h-72 w-[72rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-200 via-violet-200 to-emerald-200 blur-3xl opacity-40"
+        className="pointer-events-none absolute -top-28 left-1/2 -z-10 h-72 w-[72rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-200/45 via-violet-200/35 to-emerald-200/40 blur-3xl"
       />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <p className="text-sky-600 font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm">
+          <p className="text-sky-600 font-semibold tracking-[0.30em] uppercase text-xs sm:text-sm">
             Our Media
           </p>
           <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900">
-            Branding & Advertising Services
+            Branding &amp; Advertising Services
           </h2>
+          <p className="mt-2 text-sm sm:text-base text-slate-600">
+            Outdoor, Store, Event &amp; Digital — everything under one premium workflow.
+          </p>
         </div>
 
         <div className="mt-10 grid gap-6 lg:gap-8 lg:grid-cols-2">
           <MediaCard
             title="Outdoor Advertising"
-            accent="from-sky-500 to-indigo-600"
+            subtitle="High-visibility formats for maximum reach."
+            tone={tones.outdoor}
             onGo={goServices}
             items={[
               { label: "Hoarding (Billboards)", icon: <Hoarding /> },
@@ -334,7 +404,8 @@ const OurMedia = () => {
 
           <MediaCard
             title="Store Branding"
-            accent="from-emerald-500 to-teal-600"
+            subtitle="In-store visuals that boost walk-ins & conversions."
+            tone={tones.store}
             onGo={goServices}
             items={[
               { label: "Flyers", icon: <Flyers /> },
@@ -347,7 +418,8 @@ const OurMedia = () => {
 
           <MediaCard
             title="Event Branding"
-            accent="from-amber-500 to-rose-600"
+            subtitle="Stage, stall & venue branding that looks premium."
+            tone={tones.event}
             onGo={goServices}
             items={[
               { label: "Cutouts", icon: <Cutouts /> },
@@ -360,7 +432,8 @@ const OurMedia = () => {
 
           <MediaCard
             title="Digital Advertising"
-            accent="from-violet-500 to-fuchsia-600"
+            subtitle="Performance campaigns across major platforms."
+            tone={tones.digital}
             onGo={goServices}
             items={[
               { label: "Facebook Ads", icon: <Facebook /> },

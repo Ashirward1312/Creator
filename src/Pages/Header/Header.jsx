@@ -8,7 +8,7 @@ const Header = () => {
   const [logoError, setLogoError] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Scroll detection for subtle header shrink effect
+  // Scroll detection (ONLY shadow/border change, height change nahi hoga)
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -69,12 +69,8 @@ const Header = () => {
         ].join(" ")}
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div
-            className={[
-              "flex items-center justify-between transition-all duration-300",
-              scrolled ? "h-16" : "h-18 sm:h-20",
-            ].join(" ")}
-          >
+          {/* ✅ Fixed height (no jumping) */}
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* LOGO */}
             <Link
               to="/"
@@ -86,17 +82,18 @@ const Header = () => {
                   src={Logo}
                   alt="Creator Agency"
                   className={[
-                    "w-auto max-w-[300px] object-contain select-none transition-all duration-300",
+                    "w-auto max-w-[260px] sm:max-w-[300px] object-contain select-none",
+                    "h-12 sm:h-16", // ✅ stable height
+                    "transition-all duration-300",
                     "drop-shadow-[0_4px_12px_rgba(2,132,199,0.15)]",
                     "group-hover:drop-shadow-[0_6px_16px_rgba(2,132,199,0.25)]",
-                    scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20",
                   ].join(" ")}
                   loading="eager"
                   decoding="async"
                   onError={() => setLogoError(true)}
                 />
               ) : (
-                <div className="h-14 sm:h-16 px-5 grid place-items-center rounded-xl bg-gradient-to-r from-sky-600 to-sky-700 shadow-md shadow-sky-600/25">
+                <div className="h-12 sm:h-16 px-5 grid place-items-center rounded-xl bg-gradient-to-r from-sky-600 to-sky-700 shadow-md shadow-sky-600/25">
                   <span className="text-sm font-extrabold tracking-[0.25em] text-white">
                     CREATOR
                   </span>
@@ -131,11 +128,7 @@ const Header = () => {
               aria-label="Menu"
               aria-expanded={open}
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="h-5 w-5"
-              >
+              <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
                 {open ? (
                   <path
                     d="M6 6l12 12M18 6L6 18"
@@ -161,9 +154,7 @@ const Header = () => {
       <div
         className={[
           "fixed inset-0 top-0 z-40 lg:hidden transition-all duration-300",
-          open
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none",
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         ].join(" ")}
       >
         {/* Backdrop */}
@@ -172,14 +163,12 @@ const Header = () => {
           onClick={() => setOpen(false)}
         />
 
-        {/* Menu Panel */}
+        {/* ✅ Panel always below header (matches h-16 / sm:h-20) */}
         <div
           className={[
-            "absolute top-16 inset-x-0 mx-4 sm:mx-6 mt-2 rounded-2xl bg-white shadow-2xl shadow-sky-900/10 ring-1 ring-slate-200/80",
+            "absolute top-16 sm:top-20 inset-x-0 mx-4 sm:mx-6 mt-2 rounded-2xl bg-white shadow-2xl shadow-sky-900/10 ring-1 ring-slate-200/80",
             "transition-all duration-300",
-            open
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-4 opacity-0",
+            open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0",
           ].join(" ")}
         >
           <div className="p-3">
@@ -210,7 +199,6 @@ const Header = () => {
               ))}
             </div>
 
-            {/* Mobile menu footer */}
             <div className="mt-3 border-t border-slate-100 pt-3 px-4 pb-1">
               <p className="text-[10px] font-medium tracking-wider text-slate-400 uppercase">
                 Call us: +91 99509 94243

@@ -13,8 +13,8 @@ const capabilities = [
   "LED Sign Boards, Letters & Reception Signage",
   "Hoardings & Outdoor Advertising Structures",
   "ACP / Aluminium Elevation & Cladding Work",
-  "Flex, Vinyl, Eco-Vinyl & UV Printing",
-  "On-site Measurement, Installation & After-Support",
+  "Flex, Vinyl, Eco‑Vinyl & UV Printing",
+  "On‑site Measurement, Installation & After‑Support",
 ];
 
 const highlights = [
@@ -28,12 +28,7 @@ const highlights = [
     },
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
-        <path
-          d="M7 7h10M7 11h10M7 15h6"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
+        <path d="M7 7h10M7 11h10M7 15h6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
         <path
           d="M6.5 3.5h11A2.5 2.5 0 0 1 20 6v12a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18V6A2.5 2.5 0 0 1 6.5 3.5Z"
           stroke="currentColor"
@@ -44,7 +39,7 @@ const highlights = [
     ),
   },
   {
-    title: "End-to-End, In-House Workflow",
+    title: "End‑to‑End, In‑House Workflow",
     desc: "Concept, design, fabrication, printing and installation—handled under one roof.",
     accent: {
       ring: "ring-indigo-200/70",
@@ -54,20 +49,8 @@ const highlights = [
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
         <path d="M7 12h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path
-          d="M14 7l3 5-3 5"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M10 7l-3 5 3 5"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path d="M14 7l3 5-3 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10 7l-3 5 3 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -100,12 +83,7 @@ const highlights = [
     },
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
-        <path
-          d="M4 14v-2a8 8 0 0 1 16 0v2"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
+        <path d="M4 14v-2a8 8 0 0 1 16 0v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
         <path
           d="M6 14h2v4H6a2 2 0 0 1-2-2 2 2 0 0 1 2-2Zm12 0h-2v4h2a2 2 0 0 0 2-2 2 2 0 0 0-2-2Z"
           stroke="currentColor"
@@ -122,45 +100,25 @@ const steps = [
     no: "01",
     title: "Discover & Measure",
     desc: "We understand your goal, review the site, take measurements and plan placement for maximum visibility.",
-    accent: {
-      bar: "bg-sky-600",
-      chip: "bg-sky-100 text-sky-700",
-      ring: "ring-sky-200/70",
-      soft: "from-sky-200/40 via-white to-white",
-    },
+    accent: { bar: "bg-sky-600", chip: "bg-sky-100 text-sky-700", ring: "ring-sky-200/70", soft: "from-sky-200/40 via-white to-white" },
   },
   {
     no: "02",
     title: "Design & Finalize",
     desc: "We share mockups and recommend finishes (Silver / Gold / Rose Gold) so the brand look stays premium.",
-    accent: {
-      bar: "bg-indigo-600",
-      chip: "bg-indigo-100 text-indigo-700",
-      ring: "ring-indigo-200/70",
-      soft: "from-indigo-200/40 via-white to-white",
-    },
+    accent: { bar: "bg-indigo-600", chip: "bg-indigo-100 text-indigo-700", ring: "ring-indigo-200/70", soft: "from-indigo-200/40 via-white to-white" },
   },
   {
     no: "03",
     title: "Build & Quality Check",
     desc: "Fabrication is done with strong structure and clean finishing—followed by a QC check before dispatch.",
-    accent: {
-      bar: "bg-emerald-600",
-      chip: "bg-emerald-100 text-emerald-700",
-      ring: "ring-emerald-200/70",
-      soft: "from-emerald-200/40 via-white to-white",
-    },
+    accent: { bar: "bg-emerald-600", chip: "bg-emerald-100 text-emerald-700", ring: "ring-emerald-200/70", soft: "from-emerald-200/40 via-white to-white" },
   },
   {
     no: "04",
     title: "Install & Support",
     desc: "We coordinate safe installation with a clean final output—and stay available for support after completion.",
-    accent: {
-      bar: "bg-amber-600",
-      chip: "bg-amber-100 text-amber-800",
-      ring: "ring-amber-200/70",
-      soft: "from-amber-200/40 via-white to-white",
-    },
+    accent: { bar: "bg-amber-600", chip: "bg-amber-100 text-amber-800", ring: "ring-amber-200/70", soft: "from-amber-200/40 via-white to-white" },
   },
 ];
 
@@ -170,33 +128,31 @@ const certificateImages = [
   { src: a3, alt: "Registration Certificate - 3" },
 ];
 
-// ✅ Simple machine blocks (normal picture + small content side)
-// ✅ NO CTA button
+// ✅ Machines (bigger cards + fixed image height => no collapse/no layout jump)
 const machineBlocks = [
   {
     key: "laser",
     title: "Laser Cutting",
-    desc: "Precision cutting for letters & custom shapes.",
+    desc: "We use this machine to create sharp letters and premium shapes that make your advertising look better.",
     img: Laser,
     ring: "ring-sky-200/70",
     tag: "bg-sky-100 text-sky-700 ring-sky-200/70",
     dot: "bg-sky-600",
-    points: ["Clean edges", "Accurate shapes", "Fast production"],
+    grad: "from-sky-400 via-cyan-300 to-blue-500",
   },
   {
     key: "eco",
     title: "Eco Solvent Printing",
-    desc: "Premium print for flex, vinyl & outdoor branding.",
+    desc: "We use this machine to deliver clean, rich and long‑lasting prints that make your advertising stand out.",
     img: Eco,
     ring: "ring-emerald-200/70",
     tag: "bg-emerald-100 text-emerald-700 ring-emerald-200/70",
     dot: "bg-emerald-600",
-    points: ["Rich colors", "Outdoor durability", "Sharp output"],
+    grad: "from-emerald-400 via-teal-300 to-cyan-400",
   },
 ];
 
 const About = () => {
-  // ✅ Certificate preview modal
   const [openCertPreview, setOpenCertPreview] = useState(false);
   const [activeCertIndex, setActiveCertIndex] = useState(0);
 
@@ -210,7 +166,6 @@ const About = () => {
   const goPrev = () => setActiveCertIndex((i) => (i - 1 + totalCerts) % totalCerts);
   const goNext = () => setActiveCertIndex((i) => (i + 1) % totalCerts);
 
-  // ✅ ESC + arrows for certificate modal
   useEffect(() => {
     if (!openCertPreview) return;
 
@@ -226,11 +181,8 @@ const About = () => {
   }, [openCertPreview]);
 
   return (
-    <section
-      id="about"
-      className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white"
-    >
-      {/* premium background */}
+    <section id="about" className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
+      {/* background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-40 left-1/2 h-96 w-[58rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-200/45 via-indigo-200/25 to-emerald-200/35 blur-3xl" />
         <div className="absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] [background-size:52px_52px]" />
@@ -241,44 +193,37 @@ const About = () => {
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-2xl font-bold tracking-tight text-slate-900 uppercase">ABOUT</p>
           <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Premium execution for LED signage, outdoor advertising, printing and elevation work—built
-            to last and designed to stand out.
+            We build premium signages and advertising that look clean, feel professional, and stay strong in real outdoor conditions.
           </p>
         </div>
 
-        {/* Main about card */}
+        {/* main about */}
         <div className="mt-10 rounded-[28px] bg-gradient-to-br from-sky-300/30 via-indigo-300/15 to-emerald-300/20 p-[1px] shadow-[0_30px_90px_-55px_rgba(2,132,199,0.35)]">
           <div className="rounded-[27px] bg-white/85 backdrop-blur-xl ring-1 ring-white/50 p-6 sm:p-8">
             <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-              {/* left content */}
               <div>
                 <span className="inline-flex items-center rounded-full bg-slate-900 px-3 py-1 text-[11px] font-semibold tracking-[0.22em] text-white">
                   ABOUT US
                 </span>
 
                 <h3 className="mt-4 text-xl sm:text-2xl font-semibold text-slate-900">
-                  Visibility-first branding that increases trust and footfall.
+                  Premium Advertising &amp; Branding that turns attention into customers.
                 </h3>
 
                 <div className="mt-4 space-y-4 text-sm sm:text-base text-slate-700 leading-7">
                   <p>
-                    We deliver visually powerful and durable branding solutions with{" "}
-                    <span className="font-semibold text-slate-900">5+ years</span> of hands-on
-                    industry experience.
+                    We deliver durable and high‑visibility branding solutions with{" "}
+                    <span className="font-semibold text-slate-900">5+ years</span> of hands‑on execution experience.
                   </p>
                   <p>
-                    From concept and design to fabrication, printing and on-site installation, we
-                    manage the full workflow—so you get faster timelines and a superior final look.
+                    From concept and design to fabrication, printing and on‑site installation, we manage everything in‑house so the final output stays premium.
                   </p>
                 </div>
               </div>
 
-              {/* right: capabilities */}
               <div className="rounded-3xl bg-slate-900 text-white p-6 sm:p-7 shadow-[0_30px_90px_-55px_rgba(15,23,42,0.95)] ring-1 ring-white/10">
-                <p className="text-[11px] font-semibold tracking-[0.22em] text-white/70 uppercase">
-                  What we handle
-                </p>
-                <h4 className="mt-2 text-lg font-semibold">End-to-end execution, under one roof.</h4>
+                <p className="text-[11px] font-semibold tracking-[0.22em] text-white/70 uppercase">What we handle</p>
+                <h4 className="mt-2 text-lg font-semibold">End‑to‑end execution, under one roof.</h4>
 
                 <ul className="mt-5 space-y-3 text-sm text-white/85">
                   {capabilities.map((c) => (
@@ -289,12 +234,10 @@ const About = () => {
                   ))}
                 </ul>
 
-                {/* simple info box (no CTA) */}
                 <div className="mt-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
                   <p className="text-sm font-semibold">Quick info</p>
                   <p className="mt-1 text-sm text-white/75 leading-6">
-                    Share your location, size and requirement—we’ll guide you with the right
-                    option.
+                    Share your location + size + requirement—our team will guide you quickly.
                   </p>
                 </div>
               </div>
@@ -302,74 +245,53 @@ const About = () => {
           </div>
         </div>
 
-        {/* ✅ Machines section (no crop + smaller grid) */}
+        {/* ✅ MACHINES (FIXED) */}
         <div className="mt-10">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold tracking-[0.28em] text-slate-900 uppercase">
-              IN‑HOUSE MACHINES
+            <p className="text-xs font-semibold tracking-[0.28em] text-slate-900 uppercase">IN‑HOUSE MACHINES</p>
+            <h3 className="mt-3 text-xl sm:text-2xl font-semibold text-slate-900">Better machines. Better finishing.</h3>
+            <p className="mt-2 text-sm sm:text-base text-slate-600">
+              In‑house setup means faster delivery and cleaner output for your brand.
             </p>
-            <h3 className="mt-3 text-xl sm:text-2xl font-semibold text-slate-900">
-              Simple setup, clean output
-            </h3>
           </div>
 
-          <div className="mt-8 grid gap-6">
-            {machineBlocks.map((m) => (
+          {/* bigger grid + cards won’t collapse */}
+          <div className="mt-8 grid gap-6 lg:grid-cols-2 items-stretch">
+            {machineBlocks.map((m, idx) => (
               <div
                 key={m.key}
-                className={[
-                  "rounded-[28px] bg-white/85 backdrop-blur-xl p-4 sm:p-5",
-                  "shadow-sm ring-1",
-                  m.ring,
-                ].join(" ")}
+                className={["h-full rounded-[28px] bg-white/90 p-5 sm:p-6 shadow-sm ring-1", m.ring].join(" ")}
               >
-                <div className="grid gap-4 md:grid-cols-12 md:items-center">
-                  {/* ✅ picture (object-contain so it won't cut) */}
-                  <div className="md:col-span-6">
-                    <div className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200">
-                      <div className="h-44 sm:h-52 w-full bg-slate-50 p-3">
-                        <img
-                          src={m.img}
-                          alt={m.title}
-                          className="h-full w-full object-contain"
-                          loading="lazy"
-                          decoding="async"
-                          draggable={false}
-                        />
-                      </div>
-                    </div>
+                {/* image box (fixed height => always visible) */}
+                <div className="overflow-hidden rounded-3xl ring-1 ring-slate-200 bg-slate-50">
+                  <div className="relative h-64 sm:h-72 lg:h-80 w-full">
+                    <img
+                      src={m.img}
+                      alt={m.title}
+                      className="h-full w-full object-contain p-4"
+                      loading={idx === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                      draggable={false}
+                    />
+                    <div aria-hidden="true" className={["absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r", m.grad].join(" ")} />
                   </div>
+                </div>
 
-                  {/* small content */}
-                  <div className="md:col-span-6">
-                    <span
-                      className={[
-                        "inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold ring-1",
-                        m.tag,
-                      ].join(" ")}
-                    >
-                      <span className={["mr-2 h-2 w-2 rounded-full", m.dot].join(" ")} />
-                      {m.title}
-                    </span>
+                {/* simple content only */}
+                <div className="mt-5">
+                  <span className={["inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold ring-1", m.tag].join(" ")}>
+                    <span className={["mr-2 h-2 w-2 rounded-full", m.dot].join(" ")} />
+                    {m.title}
+                  </span>
 
-                    <p className="mt-3 text-sm text-slate-700 leading-6">{m.desc}</p>
-
-                    <ul className="mt-4 space-y-2 text-sm text-slate-700">
-                      {m.points.map((p) => (
-                        <li key={p} className="flex items-start gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900/60" />
-                          <span className="leading-6">{p}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <p className="mt-3 text-sm sm:text-base text-slate-700 leading-7">{m.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ✅ Registration Certificate card */}
+        {/* certificate card */}
         <div className="mt-8 rounded-[28px] bg-gradient-to-br from-sky-300/30 via-indigo-300/15 to-emerald-300/20 p-[1px] shadow-[0_30px_90px_-55px_rgba(2,132,199,0.35)]">
           <div className="rounded-[27px] bg-white/85 backdrop-blur-xl ring-1 ring-white/50 p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -393,7 +315,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* ✅ Certificate Preview Modal */}
+        {/* certificate modal */}
         {openCertPreview && (
           <div
             className="fixed inset-0 z-50"
@@ -456,23 +378,6 @@ const About = () => {
                           draggable={false}
                         />
                       </div>
-
-                      <button
-                        type="button"
-                        onClick={goPrev}
-                        className="hidden sm:grid absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 place-items-center rounded-full bg-white/90 ring-1 ring-slate-200 hover:bg-white transition"
-                        aria-label="Previous image"
-                      >
-                        <span className="text-slate-900 font-bold">‹</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={goNext}
-                        className="hidden sm:grid absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 place-items-center rounded-full bg-white/90 ring-1 ring-slate-200 hover:bg-white transition"
-                        aria-label="Next image"
-                      >
-                        <span className="text-slate-900 font-bold">›</span>
-                      </button>
                     </div>
 
                     <div className="px-4 py-3 border-t border-slate-200/70">
@@ -483,9 +388,7 @@ const About = () => {
                   </div>
 
                   <div className="mt-4">
-                    <p className="text-[11px] font-semibold tracking-[0.22em] text-slate-900 uppercase">
-                      Pages
-                    </p>
+                    <p className="text-[11px] font-semibold tracking-[0.22em] text-slate-900 uppercase">Pages</p>
 
                     <div className="mt-3 flex gap-3 overflow-x-auto pb-2">
                       {certificateImages.map((img, idx) => {
@@ -497,9 +400,7 @@ const About = () => {
                             onClick={() => setActiveCertIndex(idx)}
                             className={[
                               "flex-shrink-0 rounded-2xl bg-white ring-1 overflow-hidden shadow-sm transition",
-                              active
-                                ? "ring-slate-900"
-                                : "ring-slate-200 hover:ring-slate-300",
+                              active ? "ring-slate-900" : "ring-slate-200 hover:ring-slate-300",
                             ].join(" ")}
                             aria-label={`Open ${img.alt}`}
                           >
@@ -524,7 +425,7 @@ const About = () => {
         )}
 
         {/* highlights */}
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:auto-rows-fr">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((h) => (
             <div
               key={h.title}
@@ -534,19 +435,10 @@ const About = () => {
               ].join(" ")}
             >
               <div className="flex items-start justify-between gap-3">
-                <div
-                  className={[
-                    "grid h-11 w-11 place-items-center rounded-2xl ring-1",
-                    h.accent.icon,
-                  ].join(" ")}
-                >
+                <div className={["grid h-11 w-11 place-items-center rounded-2xl ring-1", h.accent.icon].join(" ")}>
                   {h.icon}
                 </div>
-                <div
-                  className={["h-1.5 w-14 rounded-full bg-gradient-to-r", h.accent.bar].join(
-                    " "
-                  )}
-                />
+                <div className={["h-1.5 w-14 rounded-full bg-gradient-to-r", h.accent.bar].join(" ")} />
               </div>
 
               <p className="mt-4 text-base font-semibold text-slate-900 leading-snug">{h.title}</p>
@@ -558,60 +450,36 @@ const About = () => {
         {/* process */}
         <div className="mt-12">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold tracking-[0.28em] text-slate-900 uppercase">
-              PROCESS
-            </p>
+            <p className="text-xs font-semibold tracking-[0.28em] text-slate-900 uppercase">PROCESS</p>
             <h3 className="mt-3 text-xl sm:text-2xl font-semibold text-slate-900">
               A Clean Process That Produces Premium Results
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              Clear steps, consistent quality checks and professional installation—no confusion, no
-              delays.
+              Clear steps, consistent quality checks and professional installation—no confusion, no delays.
             </p>
           </div>
 
           <div className="mt-8 space-y-5">
             {steps.map((s, idx) => (
               <div key={s.no} className="relative">
-                {/* connector line */}
                 {idx !== steps.length - 1 && (
-                  <div
-                    aria-hidden="true"
-                    className="absolute left-6 top-[78px] h-[calc(100%-62px)] w-px bg-slate-200"
-                  />
+                  <div aria-hidden="true" className="absolute left-6 top-[78px] h-[calc(100%-62px)] w-px bg-slate-200" />
                 )}
 
                 <div className={["rounded-[28px] bg-gradient-to-b p-[1px]", s.accent.soft].join(" ")}>
-                  <div
-                    className={[
-                      "rounded-[27px] bg-white/90 backdrop-blur-xl p-6 sm:p-7 ring-1",
-                      s.accent.ring,
-                    ].join(" ")}
-                  >
+                  <div className={["rounded-[27px] bg-white/90 backdrop-blur-xl p-6 sm:p-7 ring-1", s.accent.ring].join(" ")}>
                     <div className="flex items-start gap-4">
                       <div className="relative">
                         <div className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-900 text-white text-sm font-semibold ring-1 ring-black/10">
                           {s.no}
                         </div>
-                        <span
-                          aria-hidden="true"
-                          className={["absolute -left-2 top-1 h-10 w-1.5 rounded-full", s.accent.bar].join(
-                            " "
-                          )}
-                        />
+                        <span aria-hidden="true" className={["absolute -left-2 top-1 h-10 w-1.5 rounded-full", s.accent.bar].join(" ")} />
                       </div>
 
                       <div className="flex-1">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                          <h4 className="text-base sm:text-lg font-semibold text-slate-900">
-                            {s.title}
-                          </h4>
-                          <span
-                            className={[
-                              "w-fit rounded-full px-3 py-1 text-[11px] font-semibold",
-                              s.accent.chip,
-                            ].join(" ")}
-                          >
+                          <h4 className="text-base sm:text-lg font-semibold text-slate-900">{s.title}</h4>
+                          <span className={["w-fit rounded-full px-3 py-1 text-[11px] font-semibold", s.accent.chip].join(" ")}>
                             Step {idx + 1}
                           </span>
                         </div>
@@ -625,15 +493,11 @@ const About = () => {
           </div>
         </div>
 
-        {/* ✅ Google Map Embed */}
+        {/* map */}
         <div className="mt-10 rounded-[28px] bg-white/85 backdrop-blur-xl ring-1 ring-slate-200 p-4 sm:p-6">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold tracking-[0.28em] text-slate-900 uppercase">
-              LOCATION
-            </p>
-            <h3 className="mt-3 text-xl sm:text-2xl font-semibold text-slate-900">
-              Find us on Google Maps
-            </h3>
+            <p className="text-xs font-semibold tracking-[0.28em] text-slate-900 uppercase">LOCATION</p>
+            <h3 className="mt-3 text-xl sm:text-2xl font-semibold text-slate-900">Find us on Google Maps</h3>
           </div>
 
           <div className="mt-5 overflow-hidden rounded-3xl ring-1 ring-slate-200 bg-slate-50">
