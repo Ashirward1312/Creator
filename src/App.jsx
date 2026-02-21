@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 
@@ -32,10 +33,14 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    // ✅ Mobile viewport issue fix:
+    // min-h-screen (100vh) mobile me address bar ki wajah se jump/move karta hai
+    // isliye 100svh use kiya (stable height)
+    <div className="min-h-[100svh] bg-white text-slate-900 flex flex-col overflow-x-hidden">
       <Header />
 
-      <main className="min-h-[calc(100vh-64px)]">
+      {/* ✅ main ko flex-1 de diya => footer always bottom + layout stable */}
+      <main className="flex-1 min-h-0">
         {/* ✅ HOME: without route */}
         {isHome ? (
           <PageWrap>
@@ -43,7 +48,6 @@ function App() {
             <Ads />
             <Whatsapp />
             <Portfolio />
-
             <Why />
             <Mission />
             <Testimonials />
@@ -106,7 +110,6 @@ function App() {
               }
             />
 
-            {/* (Optional) agar inke routes bhi chahiye to */}
             <Route
               path="/portfolio"
               element={

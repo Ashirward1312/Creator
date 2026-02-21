@@ -23,17 +23,25 @@ import c8 from "../../images/c8.jpeg";
 import c10 from "../../images/c10.jpeg";
 import c11 from "../../images/c11.jpeg";
 
-const categories = ["All", "LED", "Acrylic", "3D Letters", "Pylon", "Wayfinding", "Fabric"];
+const categories = [
+  "All",
+  "ACP Elevation",
+  "3D LED Signages",
+  "Outdoor Media",
+  "Store Branding",
+  "Media Branding",
+  "Corporate Gifting",
+];
 
 // ✅ All filter chips = EXTRA LIGHT BLUE theme
 const categoryStyles = {
   All: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
-  LED: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
-  Acrylic: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
-  "3D Letters": { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
-  Pylon: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
-  Wayfinding: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
-  Fabric: { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  "ACP Elevation": { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  "3D LED Signages": { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  "Outdoor Media": { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  "Store Branding": { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  "Media Branding": { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
+  "Corporate Gifting": { grad: "from-sky-300 to-sky-200", dot: "bg-sky-300" },
 };
 
 const Arrow = ({ dir = "left" }) => (
@@ -61,35 +69,36 @@ const Arrow = ({ dir = "left" }) => (
 const Portfolio = () => {
   const images = useMemo(
     () => [
-      { id: "p1", src: p1, title: "Shop Sign", tags: ["All"] },
-      { id: "p2", src: p2, title: "LED / Glow Sign Board", tags: ["All", "LED"] },
+      { id: "p1", src: p1, title: "Shop Sign", tags: ["All", "Store Branding"] },
+      { id: "p2", src: p2, title: "LED / Glow Sign Board", tags: ["All", "3D LED Signages"] },
       {
         id: "p3",
         src: p3,
         title: "3D Letter Sign Board / Dimensional Signage",
-        tags: ["All", "3D Letters"],
+        tags: ["All", "3D LED Signages"],
       },
-      { id: "p4", src: p4, title: "Backlit Acrylic Sign Board", tags: ["All", "Acrylic", "LED"] },
-      { id: "p5", src: p5, title: "Backlit Acrylic Sign Board", tags: ["All", "Acrylic", "LED"] },
-      { id: "p6", src: p6, title: "LED Acrylic / Glow Sign Board", tags: ["All", "LED", "Acrylic"] },
-      { id: "p7", src: p7, title: "Pylon / Monolith Sign Board", tags: ["All", "Pylon"] },
-      { id: "p8", src: p8, title: "3D Acrylic Letter Sign Board", tags: ["All", "Acrylic", "3D Letters"] },
-      { id: "p9", src: p9, title: "Pylon / Monolith Sign Board", tags: ["All", "Pylon"] },
-      { id: "p10", src: p10, title: "LED Acrylic 3D Sign Board", tags: ["All", "LED", "Acrylic", "3D Letters"] },
-      { id: "p11", src: p11, title: "LED Acrylic 3D Sign Board", tags: ["All", "LED", "Acrylic", "3D Letters"] },
+      { id: "p4", src: p4, title: "Backlit Acrylic Sign Board", tags: ["All", "3D LED Signages"] },
+      { id: "p5", src: p5, title: "Backlit Acrylic Sign Board", tags: ["All", "3D LED Signages"] },
+      { id: "p6", src: p6, title: "LED Acrylic / Glow Sign Board", tags: ["All", "3D LED Signages"] },
+      { id: "p7", src: p7, title: "Pylon / Monolith Sign Board", tags: ["All", "Outdoor Media"] },
+      { id: "p8", src: p8, title: "3D Acrylic Letter Sign Board", tags: ["All", "3D LED Signages"] },
+      { id: "p9", src: p9, title: "Pylon / Monolith Sign Board", tags: ["All", "Outdoor Media"] },
+      { id: "p10", src: p10, title: "LED Acrylic 3D Sign Board", tags: ["All", "3D LED Signages"] },
+      { id: "p11", src: p11, title: "LED Acrylic 3D Sign Board", tags: ["All", "3D LED Signages"] },
       {
         id: "p12",
         src: p12,
         title: "SS Titanium Gold Sign Board / 3D Titanium Metal Signage",
-        tags: ["All", "3D Letters"],
+        tags: ["All", "Media Branding"],
       },
-      { id: "p13", src: p13, title: "Wayfinding Signage / Directional Sign Post", tags: ["All", "Wayfinding"] },
-      { id: "p14", src: p14, title: "Digital LED Display Board", tags: ["All", "LED"] },
-      { id: "c5", src: c5, title: "Pylon Sign Board", tags: ["All", "Pylon"] },
-      { id: "c6", src: c6, title: "LED Backlit Acrylic Sign Board", tags: ["All", "LED", "Acrylic"] },
-      { id: "c8", src: c8, title: "3D Acrylic Cut-out Sign", tags: ["All", "Acrylic", "3D Letters"] },
-      { id: "c10", src: c10, title: "Non‑Illuminated 3D Acrylic Sign Board", tags: ["All", "Acrylic", "3D Letters"] },
-      { id: "c11", src: c11, title: "Fabric Light Box", tags: ["All", "Fabric", "LED"] },
+      { id: "p13", src: p13, title: "Wayfinding Signage / Directional Sign Post", tags: ["All", "Outdoor Media"] },
+      { id: "p14", src: p14, title: "Digital LED Display Board", tags: ["All", "Outdoor Media"] },
+
+      { id: "c5", src: c5, title: "Pylon Sign Board", tags: ["All", "Outdoor Media"] },
+      { id: "c6", src: c6, title: "LED Backlit Acrylic Sign Board", tags: ["All", "3D LED Signages"] },
+      { id: "c8", src: c8, title: "3D Acrylic Cut-out Sign", tags: ["All", "3D LED Signages"] },
+      { id: "c10", src: c10, title: "Non‑Illuminated 3D Acrylic Sign Board", tags: ["All", "3D LED Signages"] },
+      { id: "c11", src: c11, title: "Fabric Light Box", tags: ["All", "Store Branding"] },
     ],
     []
   );
@@ -158,20 +167,26 @@ const Portfolio = () => {
         <div className="absolute -top-48 left-1/2 h-96 w-[68rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-200/35 via-violet-200/25 to-rose-200/30 blur-3xl" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-20">
         {/* heading */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold tracking-[0.30em] text-sky-700 uppercase">
-            PORTFOLIO
-          </p>
+          <p className="text-xs font-semibold tracking-[0.30em] text-sky-700 uppercase">PORTFOLIO</p>
           <h2 className="mt-3 text-xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900">
             VIEW OUR WORK
           </h2>
         </div>
 
-        {/* ✅ Filter Bar (extra light blue active) */}
-        <div className="mt-8 flex justify-center">
-          <div className="flex max-w-full flex-wrap items-center justify-center gap-2 rounded-3xl bg-white/80 backdrop-blur-xl p-2 ring-1 ring-slate-200 shadow-sm">
+        {/* ✅ Filter Bar (mobile scroll, tablet/desktop wrap) */}
+        <div className="mt-6 sm:mt-8 flex justify-center">
+          <div
+            className={[
+              "flex max-w-full items-center justify-start sm:justify-center gap-2",
+              "rounded-3xl bg-white/80 backdrop-blur-xl p-2 ring-1 ring-slate-200 shadow-sm",
+              "overflow-x-auto sm:overflow-visible",
+              "flex-nowrap sm:flex-wrap",
+              "[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+            ].join(" ")}
+          >
             {categories.map((cat) => {
               const active = cat === activeCategory;
               const s = chip(cat);
@@ -182,7 +197,7 @@ const Portfolio = () => {
                   type="button"
                   onClick={() => setActiveCategory(cat)}
                   className={[
-                    "rounded-2xl px-4 py-2 text-sm font-semibold transition",
+                    "shrink-0 rounded-2xl px-3 py-2 sm:px-4 text-xs sm:text-sm font-semibold transition",
                     "focus:outline-none focus:ring-2 focus:ring-sky-300",
                     active
                       ? `text-slate-900 shadow-sm bg-gradient-to-r ${s.grad} ring-1 ring-sky-200/70`
@@ -200,26 +215,26 @@ const Portfolio = () => {
         </div>
 
         {/* ✅ Slider Wrapper */}
-        <div className="mt-10 rounded-3xl bg-white/80 backdrop-blur-xl ring-1 ring-sky-100 shadow-sm p-4 sm:p-6">
-          <div className="relative mt-6">
-            {/* left arrow */}
+        <div className="mt-8 sm:mt-10 rounded-3xl bg-white/80 backdrop-blur-xl ring-1 ring-sky-100 shadow-sm p-3 sm:p-6">
+          <div className="relative mt-4 sm:mt-6">
+            {/* left arrow (show from md) */}
             <button
               type="button"
               onClick={() => scrollTrack(-1)}
               aria-label="Scroll left"
-              className="hidden sm:grid absolute left-2 top-1/2 -translate-y-1/2 z-10
+              className="hidden md:grid absolute left-2 top-1/2 -translate-y-1/2 z-10
                          h-11 w-11 place-items-center rounded-2xl bg-white/95
                          ring-1 ring-slate-200 shadow-sm hover:bg-white transition"
             >
               <Arrow dir="left" />
             </button>
 
-            {/* right arrow */}
+            {/* right arrow (show from md) */}
             <button
               type="button"
               onClick={() => scrollTrack(1)}
               aria-label="Scroll right"
-              className="hidden sm:grid absolute right-2 top-1/2 -translate-y-1/2 z-10
+              className="hidden md:grid absolute right-2 top-1/2 -translate-y-1/2 z-10
                          h-11 w-11 place-items-center rounded-2xl bg-white/95
                          ring-1 ring-slate-200 shadow-sm hover:bg-white transition"
             >
@@ -227,8 +242,8 @@ const Portfolio = () => {
             </button>
 
             {/* side fades */}
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-white/90 to-transparent rounded-l-3xl" />
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white/90 to-transparent rounded-r-3xl" />
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:w-10 bg-gradient-to-r from-white/90 to-transparent rounded-l-3xl" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:w-10 bg-gradient-to-l from-white/90 to-transparent rounded-r-3xl" />
 
             {/* slider track */}
             <div
@@ -245,7 +260,7 @@ const Portfolio = () => {
                   onClick={() => openAt(idx)}
                   className={[
                     "snap-center shrink-0 text-left",
-                    "w-[240px] sm:w-[280px] lg:w-[300px]",
+                    "w-[78vw] max-w-[320px] sm:w-[280px] lg:w-[300px]",
                     "rounded-3xl p-3 bg-white ring-1 ring-slate-200/80 shadow-sm",
                     "transition duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-sky-200",
                   ].join(" ")}
@@ -264,7 +279,7 @@ const Portfolio = () => {
                   </div>
 
                   <div className="mt-3 rounded-2xl bg-slate-50 px-3 py-2 ring-1 ring-slate-200/70">
-                    <p className="text-xs font-semibold text-slate-900 leading-5 h-10 overflow-hidden">
+                    <p className="text-xs sm:text-sm font-semibold text-slate-900 leading-5 h-10 overflow-hidden">
                       {img.title}
                     </p>
                   </div>
@@ -292,13 +307,13 @@ const Portfolio = () => {
         >
           <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" />
 
-          <div className="relative mx-auto flex min-h-full max-w-6xl items-center justify-center px-4 sm:px-6 lg:px-8 py-8">
+          <div className="relative mx-auto flex min-h-full max-w-6xl items-center justify-center px-3 sm:px-6 lg:px-8 py-5 sm:py-8">
             <div
-              className="w-full overflow-hidden rounded-[28px] bg-white/90 backdrop-blur-xl ring-1 ring-white/40 shadow-[0_30px_90px_-55px_rgba(15,23,42,0.75)]"
+              className="w-full overflow-hidden rounded-[24px] sm:rounded-[28px] bg-white/90 backdrop-blur-xl ring-1 ring-white/40 shadow-[0_30px_90px_-55px_rgba(15,23,42,0.75)]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* top bar */}
-              <div className="flex items-center justify-between gap-4 border-b border-slate-200/70 px-4 py-3 sm:px-5">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-200/70 px-3 sm:px-5 py-3">
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-slate-900 truncate">
                     {filteredImages[activeIndex]?.title}
@@ -312,7 +327,7 @@ const Portfolio = () => {
                   type="button"
                   onClick={close}
                   aria-label="Close preview"
-                  className="grid h-10 w-10 place-items-center rounded-full bg-white ring-1 ring-slate-200 hover:bg-slate-50 transition"
+                  className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-white ring-1 ring-slate-200 hover:bg-slate-50 transition"
                 >
                   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
                     <path
@@ -327,7 +342,7 @@ const Portfolio = () => {
 
               {/* image */}
               <div className="relative bg-slate-50 p-3 sm:p-4">
-                <div className="h-[72vh] min-h-[380px] max-h-[780px] w-full rounded-2xl bg-white ring-1 ring-slate-200 overflow-hidden">
+                <div className="h-[65svh] sm:h-[72vh] min-h-[280px] sm:min-h-[380px] max-h-[780px] w-full rounded-2xl bg-white ring-1 ring-slate-200 overflow-hidden">
                   <img
                     src={filteredImages[activeIndex]?.src}
                     alt={filteredImages[activeIndex]?.title}
@@ -342,7 +357,7 @@ const Portfolio = () => {
                   type="button"
                   onClick={prev}
                   aria-label="Previous image"
-                  className="hidden sm:grid absolute left-6 top-1/2 -translate-y-1/2 h-11 w-11 place-items-center rounded-full bg-white/95 ring-1 ring-slate-200 hover:bg-white transition"
+                  className="hidden sm:grid absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-full bg-white/95 ring-1 ring-slate-200 hover:bg-white transition"
                 >
                   <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
                     <path
@@ -359,7 +374,7 @@ const Portfolio = () => {
                   type="button"
                   onClick={next}
                   aria-label="Next image"
-                  className="hidden sm:grid absolute right-6 top-1/2 -translate-y-1/2 h-11 w-11 place-items-center rounded-full bg-white/95 ring-1 ring-slate-200 hover:bg-white transition"
+                  className="hidden sm:grid absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-full bg-white/95 ring-1 ring-slate-200 hover:bg-white transition"
                 >
                   <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
                     <path
@@ -375,7 +390,7 @@ const Portfolio = () => {
 
               {/* thumbnails */}
               <div className="bg-white/85 border-t border-slate-200/70 p-3 sm:p-4">
-                <div className="flex gap-3 overflow-x-auto pb-1">
+                <div className="flex gap-2.5 sm:gap-3 overflow-x-auto pb-1">
                   {filteredImages.map((img, idx) => {
                     const active = idx === activeIndex;
                     return (
@@ -390,7 +405,7 @@ const Portfolio = () => {
                         ].join(" ")}
                         title={img.title}
                       >
-                        <div className="h-16 w-20 sm:h-16 sm:w-24 bg-slate-100">
+                        <div className="h-14 w-16 sm:h-16 sm:w-24 bg-slate-100">
                           <img
                             src={img.src}
                             alt={img.title}
@@ -404,6 +419,11 @@ const Portfolio = () => {
                     );
                   })}
                 </div>
+
+                {/* mobile hint */}
+                <p className="mt-2 text-[11px] sm:hidden text-slate-500">
+                  Tip: Swipe thumbnails / Tap image cards to open
+                </p>
               </div>
             </div>
           </div>

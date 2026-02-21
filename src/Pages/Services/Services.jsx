@@ -49,16 +49,15 @@ const serviceImages = {
 
 const services = [
   {
-    title: "LED SIGN BOARDS",
-    subtitle: "Premium LED sign boards for maximum visibility",
+    title: "ACP Elevation",
+    subtitle: "Modern ACP elevation & cladding solutions",
     points: [
-      "LED Shine Edge Letters",
-      "Main LED Boards",
-      "LED Pillars",
-      "LED Direction & Wayfinding Signs",
-      "LED Quantum / Quanta Signs",
+      "Shop ACP Elevation",
+      "Corporate Building Elevation",
+      "ACP Gate Elevation",
+      "ACP Signages",
     ],
-    imageKeys: ["p1", "p2", "p3", "p4", "p5", "p6"],
+    imageKeys: ["c6", "c8", "c10", "c11"],
     accent: {
       card: "from-sky-50 to-white",
       ring: "ring-sky-200/70",
@@ -68,15 +67,20 @@ const services = [
     },
   },
   {
-    title: "LED SIGN BOARDS (PREMIUM)",
-    subtitle: "Specialized LED signage & custom finishes",
+    title: "3D LED Signages",
+    subtitle: "Premium illuminated signages for maximum visibility",
     points: [
-      "Clip-On LED Signs",
-      "LED Fibre Reception Signs",
-      "Shine Edge Steel LED Letters",
-      "Custom Finishes: Silver, Gold, Rose Gold",
+      "Main Shop LED Board",
+      "LED Pyron",
+      "LED Direction Signages",
+      "LED Clipon Board",
+      "LED Fabric Board",
+      "Steel LED Letters",
+      "Copper & Steel LED Letters",
+      "Rooftop LED Letters",
+      "LED Rooftop Boards",
     ],
-    imageKeys: ["p12", "p10", "p11"],
+    imageKeys: ["p2", "p3", "p4", "p5", "p6", "p10", "p11"],
     accent: {
       card: "from-indigo-50 to-white",
       ring: "ring-indigo-200/70",
@@ -86,10 +90,14 @@ const services = [
     },
   },
   {
-    title: "HOARDING & OUTDOOR ADVERTISING",
-    subtitle: "Outdoor campaigns for high-traffic attention",
-    points: ["Unipole Hoardings", "Structural Hoardings", "LED Display Boards", "Sun Back Boards"],
-    imageKeys: ["p14", "c5", "p7", "p9"],
+    title: "Outdoor Media",
+    subtitle: "High-impact outdoor branding & advertising formats",
+    points: [
+      "Hoarding / Skyline Board",
+      "Outdoor Vinyl",
+      "Wooden Cases",
+    ],
+    imageKeys: ["p7", "p9", "p14", "c5"],
     accent: {
       card: "from-amber-50 to-white",
       ring: "ring-amber-200/70",
@@ -99,17 +107,19 @@ const services = [
     },
   },
   {
-    title: "OUTDOOR & ON-SITE BRANDING",
-    subtitle: "Complete on-ground branding solutions",
+    title: "Store Branding",
+    subtitle: "Complete store branding & in-shop marketing materials",
     points: [
-      "Site Branding & Site Pan",
-      "Kitchen Branding",
-      "Leaflet Distribution",
-      "Employee Uniforms & T-Shirts",
-      "ID Cards & Booklets",
-      "Professional Fitting & Installation",
+      "Flex Board",
+      "Vinyl Sunboard",
+      "Clipon Board",
+      "Sandwich Board",
+      "Flyer / Posters / Flex",
+      "Visiting Card",
+      "Standee",
+      "ID Cards & Voucher",
     ],
-    imageKeys: ["p13", "p8", "p9"],
+    imageKeys: ["p1", "p8", "p13", "c11"],
     accent: {
       card: "from-emerald-50 to-white",
       ring: "ring-emerald-200/70",
@@ -119,19 +129,21 @@ const services = [
     },
   },
   {
-    title: "BRANDING & PRINTING MATERIALS",
-    subtitle: "Flex, vinyl & UV printing with premium materials",
+    title: "Media Branding",
+    subtitle: "Printing, event branding & promotional media solutions",
     points: [
-      "Flex Printing",
-      "Vinyl & Eco Vinyl Printing",
-      "UV Printing",
-      "Sunboard Vinyl",
-      "Glow Sign Boards",
-      "Shine Boards",
-      "Retro Glow Boards",
-      "Retro Direction Signage",
+      "Flex Printing & Installation",
+      "Vinyl",
+      "Eco Vinyl",
+      "Vinyl Sunboard",
+      "Retro Clamp Board Signages",
+      "Retro Pixel Board Signages",
+      "Store Branding",
+      "Event Branding",
+      "Smiling Signage Board",
+      "Outdoor Digital Media Branding",
     ],
-    imageKeys: ["p2", "p6", "p3"],
+    imageKeys: ["p12", "p2", "p6", "p3"],
     accent: {
       card: "from-violet-50 to-white",
       ring: "ring-violet-200/70",
@@ -141,10 +153,24 @@ const services = [
     },
   },
   {
-    title: "ELEVATION & CLADDING WORK",
-    subtitle: "Modern ACP & aluminium elevation solutions",
-    points: ["Aluminium Elevation", "ACP Elevation", "ACP / Panel Cladding Work"],
-    imageKeys: ["c6", "c8", "c10", "c11"],
+    title: "Corporate Gifting",
+    subtitle: "Customized corporate gifts for every occasion",
+    points: [
+      "Key Rings",
+      "Mug",
+      "Memento",
+      "Coaster",
+      "Pen Stand",
+      "Pens",
+      "ID Cards",
+      "Photo Frame",
+      "T-Shirt",
+      "Cap",
+      "Mobile Stand",
+      "Diwali Gifts",
+      "Holi Gifts",
+    ],
+    imageKeys: ["p4", "p5", "p6"],
     accent: {
       card: "from-rose-50 to-white",
       ring: "ring-rose-200/70",
@@ -228,8 +254,11 @@ const Services = () => {
   }, [preview.open, preview.cardIndex]);
 
   return (
-    <section id="services" className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
-      <div
+<section
+  id="services"
+  className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white
+             pt-[calc(4rem+env(safe-area-inset-top)+14px)] sm:pt-[calc(3rem+env(safe-area-inset-top)+5px)]"
+>      <div
         className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-64 max-w-6xl rounded-[3rem] bg-gradient-to-r from-sky-100/40 via-violet-100/30 to-rose-100/40 blur-2xl"
         aria-hidden="true"
       />

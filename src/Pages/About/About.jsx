@@ -181,8 +181,11 @@ const About = () => {
   }, [openCertPreview]);
 
   return (
-    <section id="about" className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
-      {/* background */}
+    <section
+      id="about"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white
+             pt-[calc(4rem+env(safe-area-inset-top)+14px)] sm:pt-[calc(3rem+env(safe-area-inset-top)+5px)]"
+    >      {/* background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-40 left-1/2 h-96 w-[58rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-200/45 via-indigo-200/25 to-emerald-200/35 blur-3xl" />
         <div className="absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] [background-size:52px_52px]" />
@@ -521,4 +524,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About; 

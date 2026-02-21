@@ -59,22 +59,23 @@ const Header = () => {
     ].join(" ");
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={[
           "bg-white/95 backdrop-blur-2xl border-b transition-all duration-300",
+          "pt-[env(safe-area-inset-top)]", // ✅ iPhone notch safe area
           scrolled
             ? "border-sky-100/80 shadow-lg shadow-sky-900/5"
             : "border-transparent shadow-sm",
         ].join(" ")}
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-3 sm:px-6 lg:px-8">
           {/* ✅ Fixed height (no jumping) */}
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* LOGO */}
             <Link
               to="/"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-3 group min-w-0"
               onClick={() => setOpen(false)}
             >
               {!logoError ? (
@@ -82,8 +83,9 @@ const Header = () => {
                   src={Logo}
                   alt="Creator Agency"
                   className={[
-                    "w-auto max-w-[260px] sm:max-w-[300px] object-contain select-none",
-                    "h-12 sm:h-16", // ✅ stable height
+                    "w-auto object-contain select-none",
+                    "h-11 sm:h-16",
+                    "max-w-[190px] sm:max-w-[300px] lg:max-w-[320px]",
                     "transition-all duration-300",
                     "drop-shadow-[0_4px_12px_rgba(2,132,199,0.15)]",
                     "group-hover:drop-shadow-[0_6px_16px_rgba(2,132,199,0.25)]",
@@ -91,10 +93,11 @@ const Header = () => {
                   loading="eager"
                   decoding="async"
                   onError={() => setLogoError(true)}
+                  draggable={false}
                 />
               ) : (
-                <div className="h-12 sm:h-16 px-5 grid place-items-center rounded-xl bg-gradient-to-r from-sky-600 to-sky-700 shadow-md shadow-sky-600/25">
-                  <span className="text-sm font-extrabold tracking-[0.25em] text-white">
+                <div className="h-11 sm:h-16 px-4 sm:px-5 grid place-items-center rounded-xl bg-gradient-to-r from-sky-600 to-sky-700 shadow-md shadow-sky-600/25">
+                  <span className="text-xs sm:text-sm font-extrabold tracking-[0.25em] text-white">
                     CREATOR
                   </span>
                 </div>
@@ -119,7 +122,7 @@ const Header = () => {
             {/* MOBILE BUTTON */}
             <button
               className={[
-                "lg:hidden rounded-xl p-2.5 transition-all duration-200",
+                "lg:hidden rounded-xl p-2.5 transition-all duration-200 flex-shrink-0",
                 open
                   ? "bg-sky-50 text-sky-700 ring-1 ring-sky-200"
                   : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-sky-50 hover:ring-sky-200 hover:text-sky-700",
@@ -127,6 +130,7 @@ const Header = () => {
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
               aria-expanded={open}
+              aria-controls="mobile-menu"
             >
               <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
                 {open ? (
@@ -150,10 +154,10 @@ const Header = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* MOBILE MENU OVERLAY (header ke niche) */}
       <div
         className={[
-          "fixed inset-0 top-0 z-40 lg:hidden transition-all duration-300",
+          "fixed inset-0 z-40 lg:hidden transition-all duration-300",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         ].join(" ")}
       >
@@ -163,12 +167,15 @@ const Header = () => {
           onClick={() => setOpen(false)}
         />
 
-        {/* ✅ Panel always below header (matches h-16 / sm:h-20) */}
+        {/* ✅ Panel top = header height + safe area */}
         <div
+          id="mobile-menu"
           className={[
-            "absolute top-16 sm:top-20 inset-x-0 mx-4 sm:mx-6 mt-2 rounded-2xl bg-white shadow-2xl shadow-sky-900/10 ring-1 ring-slate-200/80",
+            "absolute inset-x-0 mx-3 sm:mx-6 mt-2 rounded-2xl bg-white shadow-2xl shadow-sky-900/10 ring-1 ring-slate-200/80",
+            "top-[calc(4rem+env(safe-area-inset-top))] sm:top-[calc(5rem+env(safe-area-inset-top))]",
             "transition-all duration-300",
             open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0",
+            "max-h-[calc(100svh-6rem-env(safe-area-inset-top))] overflow-auto overscroll-contain",
           ].join(" ")}
         >
           <div className="p-3">

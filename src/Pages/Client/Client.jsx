@@ -1,10 +1,9 @@
 // src/components/Clients.jsx
 import React from "react";
-import Client from "../../images/b1.png";
+import Client1 from "../../images/b1.png";
 import Client2 from "../../images/b2.jpeg";
 import Client3 from "../../images/b3.png";
 import Client4 from "../../images/b4.jpeg";
-import Client5 from "../../images/b5.jpeg";
 import Client6 from "../../images/b6.jpeg";
 import Client7 from "../../images/b7.png";
 import Client8 from "../../images/b8.png";
@@ -13,18 +12,17 @@ import Client10 from "../../images/cc2.png";
 import Client11 from "../../images/cc3.png";
 import Client12 from "../../images/cc4.jpg";
 
-const clients = [
-  // 1 - 8 (Builders)
-  { name: "Client Logo", logo: Client },
+const builders = [
+  { name: "Client Logo", logo: Client1 },
   { name: "Client Logo", logo: Client2 },
   { name: "Client Logo", logo: Client3 },
   { name: "Client Logo", logo: Client4 },
-  { name: "Client Logo", logo: Client5 },
   { name: "Client Logo", logo: Client6 },
   { name: "Client Logo", logo: Client7 },
   { name: "Client Logo", logo: Client8 },
+];
 
-  // 9 onwards (Co-operatives)
+const cooperatives = [
   { name: "Client Logo", logo: Client9 },
   { name: "Client Logo", logo: Client10 },
   { name: "Client Logo", logo: Client11 },
@@ -33,7 +31,7 @@ const clients = [
 
 const LogoGrid = ({ items }) => {
   return (
-    <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+    <div className="mt-6 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
       {items.map((c, idx) => (
         <div
           key={`${c.name}-${idx}`}
@@ -50,8 +48,8 @@ const LogoGrid = ({ items }) => {
             className="absolute inset-x-0 -top-20 h-40 bg-gradient-to-b from-slate-50 to-transparent opacity-70"
           />
 
-          {/* Fixed-height tile */}
-          <div className="relative flex h-28 sm:h-32 items-center justify-center p-4">
+          {/* ✅ Bigger tile + bigger logo */}
+          <div className="relative flex h-40 sm:h-44 lg:h-48 items-center justify-center p-3 sm:p-4">
             {c.logo ? (
               <img
                 src={c.logo}
@@ -60,16 +58,17 @@ const LogoGrid = ({ items }) => {
                 decoding="async"
                 draggable={false}
                 className={[
-                  "max-h-16 sm:max-h-20 w-auto max-w-[170px] object-contain",
-                  "mix-blend-multiply",
-                  "opacity-80 grayscale",
+                  // ✅ make logo fill the tile properly
+                  "h-full w-full object-contain",
+                  // ✅ remove fade/gray so it looks big & clear
+                  "opacity-100 grayscale-0",
                   "transition duration-300",
-                  "group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-[1.03]",
+                  "group-hover:scale-[1.03]",
                 ].join(" ")}
               />
             ) : (
               <div className="text-center">
-                <div className="h-10 w-28 rounded-xl bg-slate-100 ring-1 ring-slate-200" />
+                <div className="h-12 w-32 rounded-xl bg-slate-100 ring-1 ring-slate-200" />
                 <p className="mt-2 text-xs font-semibold text-slate-500">{c.name}</p>
               </div>
             )}
@@ -84,12 +83,12 @@ const LogoGrid = ({ items }) => {
 };
 
 const Clients = () => {
-  const builders = clients.slice(0, 8); // Client 1 to Client 8
-  const cooperatives = clients.slice(8); // Client 9 onwards
-
   return (
-    <section id="clients" className="relative overflow-hidden bg-white">
-      {/* premium soft background */}
+    <section
+      id="clients"
+      className="relative overflow-hidden bg-white
+             pt-[calc(4rem+env(safe-area-inset-top)+14px)] sm:pt-[calc(3rem+env(safe-area-inset-top)+5px)]"
+    >      {/* premium soft background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-sky-50 via-white to-white" />
         <div className="absolute -top-44 left-1/2 h-96 w-[62rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-200/35 via-violet-200/20 to-emerald-200/25 blur-3xl" />
@@ -121,7 +120,7 @@ const Clients = () => {
                 Builders
               </p>
               <p className="mt-1 text-xs sm:text-sm text-slate-600">
-                Construction & real-estate partners • {builders.length} brands
+                Construction & real-estate partners 
               </p>
             </div>
             <LogoGrid items={builders} />
@@ -138,7 +137,7 @@ const Clients = () => {
                 Co‑operatives
               </p>
               <p className="mt-1 text-xs sm:text-sm text-slate-600">
-                Societies, co‑operative groups & institutions • {cooperatives.length} brands
+                Societies, co‑operative groups & institutions 
               </p>
             </div>
             <LogoGrid items={cooperatives} />
@@ -168,16 +167,6 @@ const Clients = () => {
             </div>
           </div>
         </div>
-
-        {/* optional CTA */}
-        {/* <div className="mt-10 flex justify-center">
-          <a
-            href="#contact"
-            className="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-300"
-          >
-            Work With Us
-          </a>
-        </div> */}
       </div>
     </section>
   );
